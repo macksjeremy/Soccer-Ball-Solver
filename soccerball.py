@@ -20,10 +20,7 @@ def build(stringput):
     print(stringput)
     if(works(stringput)):
         print(stringput)
-    if(len(stringput) == 1):
-        else:
-            if (len(stringput) == 8 or "yy" in stringput or "aa"in stringput or "ii" in stringput or "uu" in stringput
-        or (stringput[0] == stringput[1])):
+    if (len(stringput) == 8 or "yy" in stringput or "aa"in stringput or "ii" in stringput or "uu" in stringput):
             return
     for i in letters:
         build(stringput + i)
