@@ -5,7 +5,7 @@ import time
 
 '''
 def isvowel(letter):
-    if letter in ['a','e','i','o','u']:
+    if letter in ['a','e','i','o','u','y']:
         return True
     else:
         return False
@@ -49,6 +49,8 @@ def build(stringput):
 #No longer necessary, but useful!
 #def split(word):
 #    return [char for char in word]
+
+#make sure the string is only made up of characters from input
 def removelist(input,string):
     #print(string)
     strcpy = string
@@ -61,6 +63,7 @@ def removelist(input,string):
         print(string)
         return True
 
+#run through the corpus, check if the word uses all letters from input.
 def parsethrough(input):
     english_vocab = [w.lower() for w in words.words()]
     for i in english_vocab:
@@ -76,9 +79,9 @@ def parsethrough(input):
 #So it turns out wordnet does not contain every word in the english language.
 
 
-
+#run parsethrough on input, which runs through the whole corpus
 k = time.time()
-input = ['b', 'i', 'a', 'l', 'u', 'n', 'y']
+input = ['e', 'c', 'r', 'h', 'v', 'n', 'o']
 #print(words.words())
 parsethrough(input)
 print("Time elapsed is:",time.time() - k)
