@@ -63,13 +63,31 @@ def removelist(input,string):
         print(string)
         return True
 
+def miniword(lis, mainletter, word):
+    if len(word) < 5:
+        return False
+    works = True
+    containsmainletter = True
+    if mainletter not in word:
+        return False
+    for i in word:
+        if i not in lis:
+            works = False
+            return False
+    return True
+
+
+
+
 #run through the corpus, check if the word uses all letters from input.
-def parsethrough(input):
+def parsethrough(input, mainchar):
     outputlist = []
     english_vocab = [w.lower() for w in words.words()]
     for i in english_vocab:
+        if(miniword(input, mainchar,i)):
+            outputlist.append(i)
+            continue
         allfound = True
-        print(i)
         for j in input:
             if j not in i:
                 allfound = False
@@ -82,12 +100,18 @@ def parsethrough(input):
 
 #So it turns out wordnet does not contain every word in the english language.
 
+def prettyprint(listin):
+    for i in range(len(listin)):
+        print(listin[i], end=' ')
+        if i % 10 == 0 and i != 0:
+            print()
+    print("\n\n")
 
 #run parsethrough on input, which runs through the whole corpus
 k = time.time()
 input = ['e', 'c', 'l', 'i', 'b', 'a', 't']
 #print(words.words())
-output = parsethrough(input)
-print(output)
+output = parsethrough(input, 'b')
+prettyprint(output)
 print("Time elapsed is:",time.time() - k)
 
