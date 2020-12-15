@@ -65,24 +65,29 @@ def removelist(input,string):
 
 #run through the corpus, check if the word uses all letters from input.
 def parsethrough(input):
+    outputlist = []
     english_vocab = [w.lower() for w in words.words()]
     for i in english_vocab:
-        found = True
+        allfound = True
+        print(i)
         for j in input:
             if j not in i:
-                found = False
-        if found and removelist(input, i):
+                allfound = False
+        if allfound and removelist(input, i):
             #check other letter possiblity
             print(i)
-            return True
+            outputlist.append(i)
+
+    return outputlist
 
 #So it turns out wordnet does not contain every word in the english language.
 
 
 #run parsethrough on input, which runs through the whole corpus
 k = time.time()
-input = ['e', 'c', 'r', 'h', 'v', 'n', 'o']
+input = ['e', 'c', 'l', 'i', 'b', 'a', 't']
 #print(words.words())
-parsethrough(input)
+output = parsethrough(input)
+print(output)
 print("Time elapsed is:",time.time() - k)
 
