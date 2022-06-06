@@ -51,8 +51,7 @@ def build(stringput):
 #    return [char for char in word]
 
 #make sure the string is only made up of characters from input
-def removelist(input,string):
-    #print(string)
+def removelist(input, string):
     strcpy = string
     for i in input:
         strcpy = strcpy.replace(i,"")
@@ -98,8 +97,7 @@ def parsethrough(input, mainchar):
 
     return outputlist
 
-#So it turns out wordnet does not contain every word in the english language.
-
+#Format and output data.
 def prettyprint(listin):
     for i in range(len(listin)):
         print(listin[i], end=' ')
